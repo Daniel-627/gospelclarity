@@ -2,18 +2,19 @@ import { notFound } from 'next/navigation';
 import { posts } from '@/data/posts';
 
 interface Params {
-  params: { category: string };
+  params: { category: string };  // Expecting 'category' from dynamic route
 }
 
 export default function CategoryPage({ params }: Params) {
-  console.log(params.category);
-  const category = decodeURIComponent(params.category);  // Get the category from URL
+  console.log("Category:", params.category);  // This should print the category name
+  const category = decodeURIComponent(params.category).toLowerCase();
+
   const filteredPosts = posts.filter((post) =>
-    post.categories.includes(category)
+    post.categories.map((cat) => cat.toLowerCase()).includes(category)
   );
 
   if (!filteredPosts.length) {
-    notFound();  // If no posts for this category, trigger a 404
+    return <h1>No posts found in this category.</h1>;
   }
 
   return (
@@ -21,11 +22,10 @@ export default function CategoryPage({ params }: Params) {
       <h1 className="text-3xl font-bold mb-8">Posts in {category}</h1>
       <ul>
         {filteredPosts.map((post) => (
-          <li key={post.id} className="mb-4">
-            <a href={`/posts/${post.slug}`} className="text-2xl text-blue-500 hover:underline">
+          <li key={post.id}>
+            <a href={`/posts/${post.slug}`} className="text-blue-500 hover:underline">
               {post.title}
             </a>
-            <p className="text-gray-600">{post.date}</p>
           </li>
         ))}
       </ul>

@@ -45,4 +45,94 @@ export const posts: Post[] = [
     image: "/images/posts/second-blog-post.jpg",
     categories: ["JavaScript", "Programming"],  // Add categories here
   },
+  {
+    id: 3,
+    title: "First Blog Post",
+    slug: "first-blog-post",
+    date: "2024-09-25",
+    content: "This is the full content of the first blog post. It's very informative and includes all the details needed.",
+    author: {
+      name: "Jane Doe",
+      avatar: "/images/authors/jane.jpg",
+    },
+    excerpt: "This is a short summary of the first blog post. It gives readers an idea of what the post is about.",
+    tags: ["Next.js", "TypeScript", "TailwindCSS"],
+    image: "/images/posts/first-blog-post.jpg",
+    categories: ["Tech", "Web Development"],  // Add categories here
+  },
+  {
+    id: 4,
+    title: "Second Blog Post",
+    slug: "second-blog-post",
+    date: "2024-09-20",
+    content: "This is the full content of the second blog post. It covers even more insights and tips.",
+    author: {
+      name: "John Smith",
+      avatar: "/images/authors/john.jpg",
+    },
+    excerpt: "A brief overview of the second blog post, giving readers a taste of what to expect.",
+    tags: ["JavaScript", "Web Development", "React"],
+    image: "/images/posts/second-blog-post.jpg",
+    categories: ["JavaScript", "Programming"],  // Add categories here
+  },
+  {
+    id: 5,
+    title: "First Blog Post",
+    slug: "first-blog-post",
+    date: "2024-09-25",
+    content: "This is the full content of the first blog post. It's very informative and includes all the details needed.",
+    author: {
+      name: "Jane Doe",
+      avatar: "/images/authors/jane.jpg",
+    },
+    excerpt: "This is a short summary of the first blog post. It gives readers an idea of what the post is about.",
+    tags: ["Next.js", "TypeScript", "TailwindCSS"],
+    image: "/images/posts/first-blog-post.jpg",
+    categories: ["Tech", "Web Development"],  // Add categories here
+  },
+  {
+    id: 6,
+    title: "Second Blog Post",
+    slug: "second-blog-post",
+    date: "2024-09-20",
+    content: "This is the full content of the second blog post. It covers even more insights and tips.",
+    author: {
+      name: "John Smith",
+      avatar: "/images/authors/john.jpg",
+    },
+    excerpt: "A brief overview of the second blog post, giving readers a taste of what to expect.",
+    tags: ["JavaScript", "Web Development", "React"],
+    image: "/images/posts/second-blog-post.jpg",
+    categories: ["JavaScript", "Programming"],  // Add categories here
+  },
+  {
+    id: 7,
+    title: "First Blog Post",
+    slug: "first-blog-post",
+    date: "2024-09-25",
+    content: "This is the full content of the first blog post. It's very informative and includes all the details needed.",
+    author: {
+      name: "Jane Doe",
+      avatar: "/images/authors/jane.jpg",
+    },
+    excerpt: "This is a short summary of the first blog post. It gives readers an idea of what the post is about.",
+    tags: ["Next.js", "TypeScript", "TailwindCSS"],
+    image: "/images/posts/first-blog-post.jpg",
+    categories: ["Tech", "Web Development"],  // Add categories here
+  },
+  {
+    id: 8,
+    title: "Second Blog Post",
+    slug: "second-blog-post",
+    date: "2024-09-20",
+    content: "This is the full content of the second blog post. It covers even more insights and tips.",
+    author: {
+      name: "John Smith",
+      avatar: "/images/authors/john.jpg",
+    },
+    excerpt: "A brief overview of the second blog post, giving readers a taste of what to expect.",
+    tags: ["JavaScript", "Web Development", "React"],
+    image: "/images/posts/second-blog-post.jpg",
+    categories: ["JavaScript", "Programming"],  // Add categories here
+  },
 ];

@@ -4,11 +4,11 @@ import { posts } from '../data/posts';
 export default function HomePage() {
   return (
     <div>
-      <h1 className="text-3xl font-bold mb-8">Blog</h1>
-      <ul>
+      <h1 className="text-3xl font-bold mb-8 ">Blog</h1>
+      <ul className='grid grid-cols-4'>
         {posts.map((post) => (
           <li key={post.id} className="mb-8">
-            <img src={post.image} alt={post.title} className="w-full h-48 object-cover mb-4" />
+            
             <Link href={`/posts/${post.slug}`} className="text-2xl font-semibold text-blue-500 hover:underline">
               {post.title}
             </Link>
@@ -16,7 +16,7 @@ export default function HomePage() {
             <p className="text-gray-700 mb-4">{post.excerpt}</p>
             <div className="flex space-x-2 mb-4">
               {post.tags.map((tag, index) => (
-                <span key={index} className="bg-gray-200 px-2 py-1 text-sm rounded">{tag}</span>
+                <span key={index} className="bg-gray-200 text-gray-800 px-2 py-1 text-sm rounded">{tag}</span>
               ))}
             </div>
             <div className="flex space-x-2">

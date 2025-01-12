@@ -17,15 +17,6 @@ export default async function BlogPage() {
           {posts.map((post) => (
             <Link key={post._id} href={`/blog/${post.slug}`} className="group">
               <div className="rounded-lg shadow-md overflow-hidden bg-white hover:shadow-lg transition-shadow">
-                {/* Blog Image */}
-                {post.mainImage && urlFor(post.mainImage).url() && (
-                  <div
-                    className="h-40 bg-cover bg-center"
-                    style={{
-                      backgroundImage: `url(${urlFor(post.mainImage).url()})`,
-                    }}
-                  />
-                )}
 
                 {/* Blog Content */}
                 <div className="p-4">

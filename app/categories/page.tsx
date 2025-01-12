@@ -18,9 +18,6 @@ export default async function CategoriesPage() {
               <Link href={`/categories/${category.slug}`}>
                 <div
                   className="relative h-16 bg-cover bg-center rounded-lg shadow-lg cursor-pointer transition-transform hover:scale-105"
-                  style={{
-                    backgroundImage: `url(${category.image?.asset?.url || "/default-image.jpg"})`,
-                  }}
                 >
                   {/* Dark overlay */}
                   <div className="absolute inset-0 bg-black bg-opacity-50 rounded-lg"></div>

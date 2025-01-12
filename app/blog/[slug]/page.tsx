@@ -29,15 +29,6 @@ export default async function page({ params }: pageProps) {
       
       {/* Published Date */}
       <p className="text-gray-600">Published on: {new Date(post.publishedAt).toDateString()}</p>
-      
-      {/* Main Image */}
-      {post.mainImage && (
-        <img
-          src={post.mainImage}
-          alt={post.title}
-          className="my-4 w-full max-w-3xl object-cover rounded-lg"
-        />
-      )}
 
       {/* Body Content */}
       <div className="flex flex-row">

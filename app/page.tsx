@@ -17,36 +17,22 @@ export default async function HomePage() {
             <Link key={post._id} href={`/blog/${post.slug}`} className="group">
               <div className="p-4 hover:shadow-lg transition-shadow">
                 {/* Blog Title */}
-                <h2 className="text-xl font-semibold group-hover:text-blue-600 transition-colors">
+                <h2 className="text-xl font-semibold text-[#ffdb99] group-hover:text-[#fdeded] group-hover:underline transition-colors">
                   {post.title}
                 </h2>
 
                 {/* Author and Date */}
-                <div className="flex items-center text-sm text-gray-600 mt-2">
+                <div className="flex items-center text-sm text-[#ffdb99] mt-2">
                   <p className="mr-4">{post.author || "Unknown"}</p>
                   <p>{new Date(post.publishedAt).toLocaleDateString()}</p>
                 </div>
 
                 {/* Description */}
-                <p className="text-sm text-gray-500 mt-4">
+                <p className="text-sm text-[#ffdb99] mt-4">
                   {post.description || "No description available"}
                 </p>
 
-                {/* Categories */}
-                {post.latestCategories && post.latestCategories.length > 0 ? (
-                  <ul className="flex flex-wrap mt-4">
-                    {post.latestCategories.map((category, index) => (
-                      <li
-                        key={index}
-                        className="bg-gray-100 text-gray-700 px-2 py-1 rounded mr-2 mb-2 text-xs"
-                      >
-                        {category}
-                      </li>
-                    ))}
-                  </ul>
-                ) : (
-                  <p className="text-xs text-gray-500 mt-4">Uncategorized</p>
-                )}
+                
               </div>
             </Link>
           ))}

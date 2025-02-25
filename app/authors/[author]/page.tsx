@@ -14,7 +14,6 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
   // Fetch posts by author slug
   const posts: Post[] = await fetchPostsByAuthorSlug(author);
 
-  // Handle case where no posts are found
   if (!posts || posts.length === 0) {
     return (
       <div className="container mx-auto p-4">
@@ -30,7 +29,6 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
       <ul className="space-y-6">
         {posts.map((post) => (
           <li key={post._id}>
-            {/* Ensure post.slug.current is properly accessed */}
             <Link href={`/blog/${post.slug.current}`}>
               <div className="bg-gray-100 p-4 rounded-lg hover:bg-gray-200 transition cursor-pointer">
                 <h2 className="text-xl font-semibold">{post.title}</h2>
@@ -48,3 +46,6 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
     </div>
   );
 }
+
+export const revalidate = 60; // Revalidate the page every 60 seconds
+

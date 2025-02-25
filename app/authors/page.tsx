@@ -26,3 +26,5 @@ export default async function AuthorsPage() {
     </div>
   );
 }
+
+export const revalidate = 60; // Revalidate the page every 60 seconds

@@ -57,3 +57,6 @@ export default async function BlogPage() {
     </div>
   );
 }
+
+
+export const revalidate = 60; // Revalidate the page every 60 seconds

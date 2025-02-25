@@ -49,3 +49,6 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     </div>
   );
 }
+
+
+export const revalidate = 60; // Revalidate the page every 60 seconds

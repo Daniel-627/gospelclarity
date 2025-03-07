@@ -39,7 +39,7 @@ const Footer = () => {
       <div className="container mx-auto px-4 mt-10 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         {/* Left Side - Logo & Mission */}
         <div className="flex items-center space-x-4">
-          <Image src="/logo.png" alt="Gospel Clarity Logo" width={40} height={40} />
+          <Image src="/logo1.png" alt="Gospel Clarity Logo" width={40} height={40} />
           <p className="text-sm">
             Gospel Clarity - Defending the Faith, Studying the Word, Preaching the Truth.
           </p>

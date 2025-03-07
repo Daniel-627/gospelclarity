@@ -457,13 +457,18 @@ export async function fetchRandomAuthor() {
 }
 
 // lib/api.ts
-export async function fetchCategories(limit: number): Promise<string[]> {
+export async function fetchCategories(limit: number): Promise<{ title: string; slug: string }[]> {
   const query = `*[_type == "category"] | order(_createdAt desc)[0...${limit}] {
-    title
+    title,
+    "slug": slug.current
   }`;
   const results = await client.fetch(query);
-  return results.map((category: { title: string }) => category.title);
+  return results.map((category: { title: string; slug: string }) => ({
+    title: category.title,
+    slug: category.slug,
+  }));
 }
+
 
 
 export async function fetchRandomCategories(limit: number): Promise<Category[]> {

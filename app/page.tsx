@@ -15,9 +15,9 @@ export default async function HomePage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {posts.map((post) => (
             <Link key={post._id} href={`/blog/${post.slug}`} className="group">
-              <div className="p-4 rounded-md border border-gray-700 bg-gray-900 hover:shadow-lg transition-shadow">
+              <div className="p-4 rounded-md bg-gray-950 hover:shadow-lg transition-shadow">
                 {/* Blog Title */}
-                <h2 className="text-xl font-medium text-[#ff5c00] group-hover:text-white group-hover:underline transition-colors">
+                <h2 className="text-xl font-medium text-[#ffdb99] group-hover:text-[#fdeded] group-hover:underline transition-colors">
                   {post.title}
                 </h2>
 

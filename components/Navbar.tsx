@@ -24,7 +24,7 @@ const Navbar = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <nav className="p-4 shadow-md bg-white dark:bg-gray-900">
+    <nav className="p-4 shadow-md bg-gray-900">
       <div className="flex justify-between items-center">
         {/* Logo */}
         <Link href="/" className="flex items-center">
@@ -35,24 +35,24 @@ const Navbar = () => {
         <ul className="hidden md:flex space-x-6">
           {categories.map((category) => (
             <li key={category.slug}>
-              <Link href={`/categories/${category.slug}`} className="text-gray-700 dark:text-gray-300 hover:text-blue-500">
+              <Link href={`/categories/${category.slug}`} className="text-gray-300 hover:text-blue-500">
                 {category.title}
               </Link>
             </li>
           ))}
           <li>
-            <Link href="/blog" className="text-gray-700 dark:text-gray-300 hover:text-blue-500">Blog</Link>
+            <Link href="/blog" className="text-gray-300 hover:text-blue-500">Blog</Link>
           </li>
           <li>
-            <Link href="/about" className="text-gray-700 dark:text-gray-300 hover:text-blue-500">About Us</Link>
+            <Link href="/about" className="text-gray-300 hover:text-blue-500">About Us</Link>
           </li>
           <li>
-            <Link href="/contact" className="text-gray-700 dark:text-gray-300 hover:text-blue-500">Contact</Link>
+            <Link href="/contact" className="text-gray-300 hover:text-blue-500">Contact</Link>
           </li>
         </ul>
 
         {/* Mobile Menu Toggle */}
-        <button className="text-2xl md:hidden text-black dark:text-white" onClick={toggleMenu} aria-label="Toggle Menu">
+        <button className="text-2xl md:hidden text-white" onClick={toggleMenu} aria-label="Toggle Menu">
           {isMenuOpen ? <FaX /> : <FaBars />}
         </button>
       </div>
@@ -62,23 +62,23 @@ const Navbar = () => {
         <ul className="md:hidden flex flex-col space-y-4 mt-4">
           {categories.map((category) => (
             <li key={category.slug}>
-              <Link href={`/categories/${category.slug}`} className="block text-gray-700 dark:text-gray-300 hover:text-blue-500" onClick={toggleMenu}>
+              <Link href={`/categories/${category.slug}`} className="block text-gray-300 hover:text-blue-500" onClick={toggleMenu}>
                 {category.title}
               </Link>
             </li>
           ))}
           <li>
-            <Link href="/blog" className="block text-gray-700 dark:text-gray-300 hover:text-blue-500" onClick={toggleMenu}>
+            <Link href="/blog" className="block text-gray-300 hover:text-blue-500" onClick={toggleMenu}>
               Blog
             </Link>
           </li>
           <li>
-            <Link href="/about" className="block text-gray-700 dark:text-gray-300 hover:text-blue-500" onClick={toggleMenu}>
+            <Link href="/about" className="block text-gray-300 hover:text-blue-500" onClick={toggleMenu}>
               About Us
             </Link>
           </li>
           <li>
-            <Link href="/contact" className="block text-gray-700 dark:text-gray-300 hover:text-blue-500" onClick={toggleMenu}>
+            <Link href="/contact" className="block text-gray-300 hover:text-blue-500" onClick={toggleMenu}>
               Contact
             </Link>
           </li>

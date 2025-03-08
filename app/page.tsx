@@ -7,7 +7,7 @@ export default async function HomePage() {
   const posts: Post[] = await fetchAllPosts();
 
   return (
-    <div className="container mx-auto p-4 bg-gray-900 text-gray-300">
+    <div className="container mx-auto p-4 bg-gray-900 text-gray-300 border-b border-gray-700">
       <h1 className="text-4xl font-bold mb-8 text-center text-white">All Blog Posts</h1>
       {posts.length === 0 ? (
         <p className="text-center text-gray-400">No blog posts available.</p>
@@ -15,14 +15,14 @@ export default async function HomePage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {posts.map((post) => (
             <Link key={post._id} href={`/blog/${post.slug}`} className="group">
-              <div className="p-4 rounded-md bg-gray-950 hover:shadow-lg transition-shadow">
+              <div className="p-4 rounded-md bg-gray-900 hover:bg-gray-950 hover:shadow-lg transition-shadow">
                 {/* Blog Title */}
                 <h2 className="text-xl font-medium text-[#ffdb99] group-hover:text-[#fdeded] group-hover:underline transition-colors">
                   {post.title}
                 </h2>
 
                 {/* Author and Date */}
-                <div className="flex items-center text-xs font-thin text-gray-400 mt-2">
+                <div className="flex items-center text-xs font-thin text-gray-500 mt-2">
                   <p className="mr-4">{post.author || "Unknown"}</p>
                   <p>{new Date(post.publishedAt).toLocaleDateString()}</p>
                 </div>

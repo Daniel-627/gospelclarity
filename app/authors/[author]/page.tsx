@@ -26,13 +26,13 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-3xl font-bold mb-6">Posts by {author.charAt(0).toUpperCase() + author.slice(1)}</h1>
-      <ul className="space-y-6">
+      <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {posts.map((post) => (
           <li key={post._id}>
             <Link href={`/blog/${post.slug.current}`}>
-              <div className="bg-gray-100 p-4 rounded-lg hover:bg-gray-200 transition cursor-pointer">
+              <div className="bg-gray-900 p-4 rounded-lg hover:bg-gray-950 transition cursor-pointer">
                 <h2 className="text-xl font-semibold">{post.title}</h2>
-                <p className="text-gray-700 mt-2">
+                <p className="text-gray-300 mt-2">
                   {post.description || "No description available"}
                 </p>
                 <p className="text-sm text-gray-500 mt-1">

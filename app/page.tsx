@@ -17,7 +17,7 @@ export default async function HomePage() {
             <Link key={post._id} href={`/blog/${post.slug}`} className="group">
               <div className="p-4 rounded-md bg-gray-900 hover:bg-gray-950 hover:shadow-lg transition-shadow">
                 {/* Blog Title */}
-                <h2 className="text-xl font-medium text-[#ffdb99] group-hover:text-[#fdeded] group-hover:underline transition-colors">
+                <h2 className="text-xl font-semibold text-[#ffdb99] group-hover:text-[#fdeded] transition-colors duration-300">
                   {post.title}
                 </h2>
 

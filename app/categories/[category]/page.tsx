@@ -33,9 +33,9 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           <li key={post._id}>
             {/* Use post.slug.current to correctly access the string value of the slug */}
             <Link href={`/blog/${post.slug.current}`}>
-              <div className="bg-gray-100 p-4 rounded-lg hover:bg-gray-200 transition cursor-pointer">
+              <div className="bg-gray-900 p-4 rounded-lg hover:bg-gray-950 transition cursor-pointer">
                 <h2 className="text-xl font-semibold">{post.title}</h2>
-                <p className="text-gray-700 mt-2">
+                <p className="text-gray-300 mt-2">
                   {post.description || "No description available"}
                 </p>
                 <p className="text-sm text-gray-500 mt-1">

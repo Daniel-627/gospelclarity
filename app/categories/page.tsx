@@ -7,7 +7,7 @@ export default async function CategoriesPage() {
   const categories: Category[] = await fetchAllCategories();
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto p-4 pt-[70px] md:pt-20">
       <h1 className="text-3xl font-bold mb-6">Categories</h1>
       {categories.length === 0 ? (
         <p>No categories available.</p>

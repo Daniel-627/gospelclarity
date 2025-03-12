@@ -8,7 +8,7 @@ export default async function AuthorsPage() {
   const authors: Author[] = await fetchAllAuthors();
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto p-4 pt-[70px] md:pt-20">
       <h1 className="text-3xl font-bold mb-6">Authors</h1>
       {authors.length === 0 ? (
         <p>No authors available.</p>

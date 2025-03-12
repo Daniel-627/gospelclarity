@@ -19,7 +19,7 @@ export default async function BlogPage() {
               <div className="rounded-lg shadow-md overflow-hidden bg-gray-900 hover:bg-gray-950 hover:shadow-lg transition-shadow">
 
                 {/* Blog Content */}
-                <div className="p-4">
+                <div className="p-4 pt-[68px] md:pt-20">
                   <h2 className="text-xl font-semibold text-[#ffdb99] group-hover:text-[#fdeded] transition-colors duration-300">
                     {post.title}
                   </h2>

@@ -1,19 +1,26 @@
-// app/blog/page.tsx
 import { fetchAllPosts } from "@/lib/api";
 import { Post } from "@/types/blog";
 import Link from "next/link";
 
-export default async function HomePage() {
-  const posts: Post[] = await fetchAllPosts();
+const POSTS_PER_PAGE = 6; // Set the number of posts per page
+
+export default async function HomePage({ searchParams }: { searchParams: { page?: string } }) {
+  const currentPage = Number(searchParams.page) || 1; // Get page number from query params, default to 1
+  const allPosts: Post[] = await fetchAllPosts();
+
+  // Paginate posts
+  const totalPages = Math.ceil(allPosts.length / POSTS_PER_PAGE);
+  const paginatedPosts = allPosts.slice((currentPage - 1) * POSTS_PER_PAGE, currentPage * POSTS_PER_PAGE);
 
   return (
     <div className="container mx-auto p-4 bg-gray-900 text-gray-300 border-b border-gray-700 pt-[72px] md:pt-20">
       <h1 className="text-4xl font-bold mb-8 text-center text-white">All Blog Posts</h1>
-      {posts.length === 0 ? (
+
+      {paginatedPosts.length === 0 ? (
         <p className="text-center text-gray-400">No blog posts available.</p>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {posts.map((post) => (
+          {paginatedPosts.map((post) => (
             <Link key={post._id} href={`/blog/${post.slug}`} className="group">
               <div className="p-4 rounded-md bg-gray-900 hover:bg-gray-950 hover:shadow-lg transition-shadow">
                 {/* Blog Title */}
@@ -36,6 +43,27 @@ export default async function HomePage() {
           ))}
         </div>
       )}
+
+      {/* Pagination Controls */}
+      <div className="flex justify-center items-center mt-8 space-x-4">
+        {/* Previous Page Button */}
+        {currentPage > 1 && (
+          <Link href={`/blog?page=${currentPage - 1}`} className="px-4 py-2 text-gray-300 bg-gray-800 rounded-md hover:bg-gray-700">
+            Previous
+          </Link>
+        )}
+
+        <span className="text-white">
+          Page {currentPage} of {totalPages}
+        </span>
+
+        {/* Next Page Button */}
+        {currentPage < totalPages && (
+          <Link href={`/blog?page=${currentPage + 1}`} className="px-4 py-2 text-gray-300 bg-gray-800 rounded-md hover:bg-gray-700">
+            Next
+          </Link>
+        )}
+      </div>
     </div>
   );
 }

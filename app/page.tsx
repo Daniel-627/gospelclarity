@@ -49,7 +49,7 @@ export default async function HomePage({ searchParams }: { searchParams: { page?
       <div className="flex justify-center items-center mt-8 space-x-4">
         {/* Previous Page Button */}
         {currentPage > 1 && (
-          <Link href={`/blog?page=${currentPage - 1}`} className="px-4 py-2 text-gray-300 bg-gray-800 rounded-md hover:bg-gray-700 transition-all duration-300">
+          <Link href={`/?page=${currentPage - 1}`} className="px-4 py-2 text-gray-300 bg-gray-800 rounded-md hover:bg-gray-700 transition-all duration-300">
             Previous
           </Link>
         )}
@@ -60,18 +60,18 @@ export default async function HomePage({ searchParams }: { searchParams: { page?
 
         {/* Next Page Button */}
         {currentPage < totalPages && (
-          <Link href={`/blog?page=${currentPage + 1}`} className="px-4 py-2 text-gray-300 bg-gray-800 rounded-md hover:bg-gray-700 transition-all duration-300">
+          <Link href={`/?page=${currentPage + 1}`} className="px-4 py-2 text-gray-300 bg-gray-800 rounded-md hover:bg-gray-700 transition-all duration-300">
             Next
           </Link>
         )}
       </div>
 
       {/* Navigation Moved to Bottom */}
-      <div className="fixed bottom-0 left-0 w-full bg-gray-950 p-4 flex justify-center space-x-6 shadow-lg transition-all duration-300">
-        <Link href="/blog" className="px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-700 transition-all duration-300">
+      <div className="p-4 flex justify-center space-x-6 transition-all duration-300">
+        <Link href="/blog" className="px-4 py-2 bg-gray-9500 text-white rounded-md hover:bg-gray-700 transition-all duration-300">
           All Blogs
         </Link>
-        <Link href="/categories" className="px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-700 transition-all duration-300">
+        <Link href="/categories" className="px-4 py-2 bg-gray-950 text-white rounded-md hover:bg-gray-700 transition-all duration-300">
           All Categories
         </Link>
       </div>

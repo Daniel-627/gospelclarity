@@ -5,9 +5,8 @@ import Image from "next/image";
 
 const Hero = () => {
   return (
-    <section className="relative w-full min-h-screen flex flex-col items-center justify-center text-center px-6">
+    <section className="w-full flex flex-col items-center justify-center text-center px-6">
       {/* Background Animation (Optional) */}
-      <div className="absolute inset-0 bg-gradient-to-b from-gray-900 to-black opacity-60" />
 
       {/* Logo */}
       <Image src="/logo1.png" alt="Gospel Clarity Logo" width={120} height={120} className="mb-4" />
@@ -26,7 +25,7 @@ const Hero = () => {
       <div className="mt-6">
         <Link
           href="/about"
-          className="px-6 py-3 bg-blue-600 rounded-md text-lg font-semibold transition hover:bg-blue-700"
+          className="px-6 py-3 bg-gray-950 rounded-md text-lg font-semibold transition hover:bg-gray-800"
         >
           Learn More
         </Link>

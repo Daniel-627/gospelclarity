@@ -39,6 +39,7 @@ export const fetchPostBySlug = async (slug: string): Promise<Post | null> => {
     "author": author->name,
     "latestCategory": categories[-1]->title,
     publishedAt,
+    description,
     "slug": slug.current,
     "mainImage": mainImage.asset->url,  // Fetching the image URL
     body  // Fetch the body content

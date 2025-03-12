@@ -24,7 +24,7 @@ const Navbar = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <nav className="p-4 shadow-md bg-gray-900">
+    <nav className="fixed top-0 left-0 w-full z-[1000] p-4 shadow-md bg-black/80 backdrop-blur-md">
       <div className="flex justify-between items-center">
         {/* Logo */}
         <Link href="/" className="flex items-center">
@@ -42,6 +42,9 @@ const Navbar = () => {
           ))}
           <li>
             <Link href="/blog" className="text-gray-300 hover:text-blue-500">Blog</Link>
+          </li>
+          <li>
+            <Link href="/videos" className="text-gray-300 hover:text-blue-500">Videos</Link>
           </li>
           <li>
             <Link href="/about" className="text-gray-300 hover:text-blue-500">About Us</Link>
@@ -70,6 +73,11 @@ const Navbar = () => {
           <li>
             <Link href="/blog" className="block text-gray-300 hover:text-blue-500" onClick={toggleMenu}>
               Blog
+            </Link>
+          </li>
+          <li>
+            <Link href="/videos" className="block text-gray-300 hover:text-blue-500" onClick={toggleMenu}>
+              Videos
             </Link>
           </li>
           <li>

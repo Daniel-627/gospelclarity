@@ -5,14 +5,14 @@ import Image from "next/image";
 
 const Hero = () => {
   return (
-    <section className="w-full flex flex-col md:flex-row items-center justify-center text-center px-6 py-2">
+    <section className="w-full flex flex-col md:flex-row items-center justify-center text-center px-6 py-2 border border-b-2">
 
       <div className="flex flex-col">
         {/* Logo */}
-        <Image src="/logo1.png" alt="Gospel Clarity Logo" width={160} height={160} className="mb-4" />
+        <Image src="/logo1.png" alt="Gospel Clarity Logo" width={200} height={200} className="mb-4" />
 
         {/* Title */}
-        <h1 className="text-6xl font-semibold text-white mb-4">
+        <h1 className="text-4xl font-semibold text-white mb-4">
             Gospel Clarity
         </h1>
       </div>

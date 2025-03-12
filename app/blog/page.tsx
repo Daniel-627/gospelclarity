@@ -8,7 +8,7 @@ export default async function BlogPage() {
   const posts: Post[] = await fetchAllPosts();
 
   return (
-    <div className="container mx-auto p-4 bg-gray-900 text-gray-300 border-b border-gray-700 pt-[70px] md:pt-20">
+    <div className="container mx-auto p-4 bg-gray-900 text-gray-300 border-b border-gray-700 pt-[72px] md:pt-20">
       <h1 className="text-4xl font-bold mb-8 text-center">All Blog Posts</h1>
       {posts.length === 0 ? (
         <p className="text-center">No blog posts available.</p>

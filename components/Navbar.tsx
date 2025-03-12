@@ -24,7 +24,7 @@ const Navbar = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-[1000] p-4 shadow-md bg-black/80 backdrop-blur-md">
+    <nav className="fixed top-0 left-0 w-full z-[1000] p-4 shadow-md bg-black/20 backdrop-blur-md">
       <div className="flex justify-between items-center">
         {/* Logo */}
         <Link href="/" className="flex items-center">

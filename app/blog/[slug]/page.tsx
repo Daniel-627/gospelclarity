@@ -44,7 +44,7 @@ export default async function Page({ params }: PageProps) {
   }
 
   return (
-    <div className="container mx-auto p-4 mt-16">
+    <div className="container mx-auto p-4 pt-16">
       {/* Title */}
       <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
 

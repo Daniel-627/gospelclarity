@@ -48,7 +48,7 @@ export default async function HomePage({ searchParams }: { searchParams: { page?
       <div className="flex justify-center items-center mt-8 space-x-4">
         {/* Previous Page Button */}
         {currentPage > 1 && (
-          <Link href={`/blog?page=${currentPage - 1}`} className="px-4 py-2 text-gray-300 bg-gray-800 rounded-md hover:bg-gray-700">
+          <Link href={`/?page=${currentPage - 1}`} className="px-4 py-2 text-gray-300 bg-gray-800 rounded-md hover:bg-gray-700">
             Previous
           </Link>
         )}
@@ -59,7 +59,7 @@ export default async function HomePage({ searchParams }: { searchParams: { page?
 
         {/* Next Page Button */}
         {currentPage < totalPages && (
-          <Link href={`/blog?page=${currentPage + 1}`} className="px-4 py-2 text-gray-300 bg-gray-800 rounded-md hover:bg-gray-700">
+          <Link href={`/?page=${currentPage + 1}`} className="px-4 py-2 text-gray-300 bg-gray-800 rounded-md hover:bg-gray-700">
             Next
           </Link>
         )}

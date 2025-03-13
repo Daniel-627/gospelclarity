@@ -29,7 +29,7 @@ const Navbar = () => {
         {/* Logo */}
         <Link href="/" className="flex items-center flex-row">
           <Image src={logo} alt="Gospel Clarity Logo" width={40} height={40} className="rounded" />
-          <h1 className='pr-1 text-2xl font-semibold'>Gospel Clarity</h1>
+          <h1 className="hidden lg:block pr-2 text-2xl font-semibold">Gospel Clarity</h1>
         </Link>
 
         {/* Desktop Menu */}

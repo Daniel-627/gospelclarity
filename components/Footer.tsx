@@ -4,7 +4,7 @@ import { FaXTwitter, FaYoutube } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-gray-300 py-10">
+    <footer className="bg-transparent text-gray-300 py-10">
       {/* Top Part */}
       <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-10 border-b border-gray-700 pb-10">
         {/* Left Side - Newsletter Subscription */}

@@ -7,9 +7,9 @@ const Hero = () => {
   return (
     <section className="w-full flex flex-col md:flex-row items-center justify-center text-center px-6 py-2 border-b-2">
 
-      <div className="flex flex-col">
+      <div className="flex flex-col justify-center flex-1">
         {/* Logo */}
-        <Image src="/logo1.png" alt="Gospel Clarity Logo" width={210} height={210} className="mb-4" />
+        <Image src="/logo1.png" alt="Gospel Clarity Logo" width={240} height={240} className="mb-4" />
 
         {/* Title */}
         <h1 className="text-4xl font-semibold text-[#ffdb99] mb-4">
@@ -17,7 +17,7 @@ const Hero = () => {
         </h1>
       </div>
 
-      <div>
+      <div className="flex flex-col justify-start flex-1">
         {/* Description */}
         <p className="text-lg text-gray-300 max-w-2xl mx-auto">
             Gospel Clarity is a platform focused on Christian apologetics, Bible studies, and sermon summaries. 
@@ -30,7 +30,7 @@ const Hero = () => {
         <div className="mt-6">
             <Link
             href="/about"
-            className="px-6 py-3 bg-gray-900 rounded-md text-base font-medium transition hover:bg-gray-950"
+            className="px-6 py-3 bg-gray-950 rounded-md text-base font-medium transition hover:bg-gray-800"
             >
             Learn More
             </Link>

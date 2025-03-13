@@ -16,7 +16,7 @@ export default async function HomePage({ searchParams }: { searchParams: { page?
   return (
     <div className="mx-auto p-4 bg-gray-900 text-gray-300 border-b border-gray-700 pt-[72px] md:pt-20">
       <Hero />
-      <h1 className='pt-4 pl-4 text-4xl font-semibold text-[#ffdb99] flex text-left'>Recent Articles</h1>
+      <h1 className='py-4 pl-4 text-4xl font-semibold text-[#ffdb99] flex text-left'>Recent Articles</h1>
 
       {paginatedPosts.length === 0 ? (
         <p className="text-center text-gray-400">No blog posts available.</p>

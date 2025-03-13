@@ -16,6 +16,7 @@ export default async function HomePage({ searchParams }: { searchParams: { page?
   return (
     <div className="mx-auto p-4 bg-gray-900 text-gray-300 border-b border-gray-700 pt-[72px] md:pt-20">
       <Hero />
+      <h1 className='pt-4 flex text-left'>Recent Articles</h1>
 
       {paginatedPosts.length === 0 ? (
         <p className="text-center text-gray-400">No blog posts available.</p>
@@ -68,10 +69,10 @@ export default async function HomePage({ searchParams }: { searchParams: { page?
 
       {/* Navigation Moved to Bottom */}
       <div className="p-4 flex justify-center space-x-6 transition-all duration-300">
-        <Link href="/blog" className="px-4 py-2 bg-gray-9500 text-white rounded-md hover:bg-gray-700 transition-all duration-300">
-          All Blogs
+        <Link href="/blog" className="px-4 py-2 bg-gray-900 text-white rounded-md hover:bg-gray-950 transition-all duration-300">
+          All Articles
         </Link>
-        <Link href="/categories" className="px-4 py-2 bg-gray-950 text-white rounded-md hover:bg-gray-700 transition-all duration-300">
+        <Link href="/categories" className="px-4 py-2 bg-gray-900 text-white rounded-md hover:bg-gray-950 transition-all duration-300">
           All Categories
         </Link>
       </div>

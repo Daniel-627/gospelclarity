@@ -27,8 +27,9 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 w-full z-[1000] p-4 shadow-md bg-black/20 backdrop-blur-md">
       <div className="flex justify-between items-center">
         {/* Logo */}
-        <Link href="/" className="flex items-center">
+        <Link href="/" className="flex items-center flex-row">
           <Image src={logo} alt="Gospel Clarity Logo" width={40} height={40} className="rounded" />
+          <h1 className='pr-1 text-2xl font-semibold'>Gospel Clarity</h1>
         </Link>
 
         {/* Desktop Menu */}
@@ -41,7 +42,7 @@ const Navbar = () => {
             </li>
           ))}
           <li>
-            <Link href="/blog" className="text-gray-300 hover:text-blue-500">Blog</Link>
+            <Link href="/blog" className="text-gray-300 hover:text-blue-500">Articles</Link>
           </li>
           <li>
             <Link href="/videos" className="text-gray-300 hover:text-blue-500">Videos</Link>
@@ -72,7 +73,7 @@ const Navbar = () => {
           ))}
           <li>
             <Link href="/blog" className="block text-gray-300 hover:text-blue-500" onClick={toggleMenu}>
-              Blog
+              Articles
             </Link>
           </li>
           <li>

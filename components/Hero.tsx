@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const Hero = () => {
   return (
-    <section className="w-full flex flex-col md:flex-row items-center justify-center text-center px-6 py-2 border border-b-2">
+    <section className="w-full flex flex-col md:flex-row items-center justify-center text-center px-6 py-2 border-b-2">
 
       <div className="flex flex-col">
         {/* Logo */}
@@ -27,7 +27,7 @@ const Hero = () => {
         <div className="mt-6">
             <Link
             href="/about"
-            className="px-6 py-3 bg-gray-950 rounded-md text-lg font-semibold transition hover:bg-gray-800"
+            className="px-6 py-3 bg-gray-900 rounded-md text-base font-medium transition hover:bg-gray-950"
             >
             Learn More
             </Link>

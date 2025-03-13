@@ -9,10 +9,10 @@ const Hero = () => {
 
       <div className="flex flex-col">
         {/* Logo */}
-        <Image src="/logo1.png" alt="Gospel Clarity Logo" width={200} height={200} className="mb-4" />
+        <Image src="/logo1.png" alt="Gospel Clarity Logo" width={210} height={210} className="mb-4" />
 
         {/* Title */}
-        <h1 className="text-4xl font-semibold text-white mb-4">
+        <h1 className="text-4xl font-semibold text-[#ffdb99] mb-4">
             Gospel Clarity
         </h1>
       </div>
@@ -20,7 +20,10 @@ const Hero = () => {
       <div>
         {/* Description */}
         <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-            A platform dedicated to Christian apologetics, Bible studies, and sermon summaries—bringing clarity to the Gospel.
+            Gospel Clarity is a platform focused on Christian apologetics, Bible studies, and sermon summaries. 
+            Our goal is to help believers strengthen their faith by providing clear, well-researched insights into Scripture and theology. 
+            We simplify complex biblical concepts, making them accessible to all. Whether you are seeking answers to faith-related questions or looking to grow spiritually, 
+            Gospel Clarity offers reliable resources to guide you in understanding God’s Word with clarity and truth.
         </p>
 
         {/* About Us Link */}

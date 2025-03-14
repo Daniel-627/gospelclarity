@@ -10,7 +10,7 @@ export default function ApologeticsBlogList() {
 
   useEffect(() => {
     async function fetchPosts() {
-      const apologeticsPosts = await fetchApologeticsPosts(1, 5);
+      const apologeticsPosts = await fetchApologeticsPosts(0, 5);
       setPosts(apologeticsPosts);
     }
     fetchPosts();

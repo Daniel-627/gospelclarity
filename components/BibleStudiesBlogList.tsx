@@ -10,7 +10,7 @@ export default function BibleStudiesBlogList() {
 
   useEffect(() => {
     async function fetchPosts() {
-      const biblestudiesPosts = await fetchBibleStudiesPosts(1, 5);
+      const biblestudiesPosts = await fetchBibleStudiesPosts(0, 5);
       setPosts(biblestudiesPosts);
     }
     fetchPosts();

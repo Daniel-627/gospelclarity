@@ -10,7 +10,7 @@ export default function SermonsBlogList() {
 
   useEffect(() => {
     async function fetchPosts() {
-      const sermonsPosts = await fetchSermonsPosts(1, 5);
+      const sermonsPosts = await fetchSermonsPosts(0, 5);
       setPosts(sermonsPosts);
     }
     fetchPosts();

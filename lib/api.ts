@@ -285,6 +285,60 @@ export async function fetchFeaturedPosts(startIndex = 0, limit = 10): Promise<Po
   return posts;
 }
 
+export async function fetchApologeticsPosts(startIndex = 0, limit = 10): Promise<Post[]> {
+  const query = `
+    *[_type == "post" && "Apologetics" in categories[]->title] | order(publishedAt desc) [${startIndex}...${startIndex + limit}] {
+      _id,
+      title,
+      slug,
+      mainImage{asset->{url}},
+      description,
+      "author": author->name,
+      "latestCategory": categories[-1]->title,
+      publishedAt
+    }
+  `;
+  const posts = await client.fetch(query);
+  console.log("Fetched Apologetics posts:", posts); // Log the posts to debug
+  return posts;
+}
+
+export async function fetchBibleStudiesPosts(startIndex = 0, limit = 10): Promise<Post[]> {
+  const query = `
+    *[_type == "post" && "Bible Studies" in categories[]->title] | order(publishedAt desc) [${startIndex}...${startIndex + limit}] {
+      _id,
+      title,
+      slug,
+      mainImage{asset->{url}},
+      description,
+      "author": author->name,
+      "latestCategory": categories[-1]->title,
+      publishedAt
+    }
+  `;
+  const posts = await client.fetch(query);
+  console.log("Fetched Bible Studies posts:", posts); // Log the posts to debug
+  return posts;
+}
+
+export async function fetchSermonsPosts(startIndex = 0, limit = 10): Promise<Post[]> {
+  const query = `
+    *[_type == "post" && "Sermons" in categories[]->title] | order(publishedAt desc) [${startIndex}...${startIndex + limit}] {
+      _id,
+      title,
+      slug,
+      mainImage{asset->{url}},
+      description,
+      "author": author->name,
+      "latestCategory": categories[-1]->title,
+      publishedAt
+    }
+  `;
+  const posts = await client.fetch(query);
+  console.log("Fetched Featured posts:", posts); // Log the posts to debug
+  return posts;
+}
+
 export async function fetchMostRecentEditorPost(): Promise<Post | null> {
   const posts = await client.fetch(
     `*[_type == "post" && "Editor" in categories[]->title] | order(publishedAt desc)[0] {

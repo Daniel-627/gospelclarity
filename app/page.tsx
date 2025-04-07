@@ -17,7 +17,9 @@ export default async function HomePage({ searchParams }: { searchParams: { page?
   return (
     <div className="mx-auto p-4 bg-gray-900 text-gray-300 border-b border-gray-700 pt-[72px] md:pt-20">
       <Hero />
-      <TriList />
+      <div className="w-full flex">
+        <TriList />
+      </div>
       <h1 className='py-4 pl-4 text-xl font-medium text-[#ffdb99] flex text-left'>Recent Articles</h1>
 
       {paginatedPosts.length === 0 ? (

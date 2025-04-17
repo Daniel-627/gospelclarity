@@ -36,12 +36,12 @@ export default async function Page({ params }: PageProps) {
   const { slug } = params;
 
   const post: Post | null = await fetchPostBySlug(slug);
+  if (!post) return notFound();
 
-  if (!post) {
-    return notFound();
-  }
-
-  const relatedPosts = await fetchRelatedPosts(post.latestCategories ?? [], post.slug.current);
+  const { posts: relatedPosts, selectedCategory } = await fetchRelatedPosts(
+    post.latestCategories ?? [],
+    post.slug.current
+  );
 
 
   return (
@@ -54,7 +54,7 @@ export default async function Page({ params }: PageProps) {
       </div>
 
       {/* Related Posts */}
-      <YouMayAlsoLike posts={relatedPosts} />
+      <YouMayAlsoLike posts={relatedPosts} category={selectedCategory}/>
     </div>
   );
 }

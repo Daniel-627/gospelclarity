@@ -538,5 +538,36 @@ export async function fetchRandomCategories(limit: number): Promise<Category[]> 
 }
 
 
+export const fetchRelatedPosts = async (categories: string[], currentSlug: string): Promise<Post[]> => {
+  const query = `
+    *[_type == "post" && slug.current != $currentSlug && count(categories[@->title in $categories]) > 0] {
+      _id,
+      title,
+      mainImage,
+      "author": author->name,
+      "categories": categories[]->title,
+      description,
+      "slug": slug.current,
+      publishedAt,
+      content
+    }
+  `;
+  
+  const allMatches: Post[] = await client.fetch(query, {
+    categories,
+    currentSlug,
+  });
+
+  const uniquePosts: Record<string, Post> = {};
+  for (const post of allMatches) {
+    for (const category of post.categories || []) {
+      if (!uniquePosts[category]) {
+        uniquePosts[category] = post;
+      }
+    }
+  }
+
+  return Object.values(uniquePosts);
+};
 
 

@@ -24,6 +24,7 @@ export interface Post {
   category: Category;
   latestCategory: string;
   latestCategories?: string[];
+  categories?: string[]; 
   author: string
 }
 

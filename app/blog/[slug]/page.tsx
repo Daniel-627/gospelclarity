@@ -2,7 +2,7 @@ import { fetchPostBySlug, fetchRelatedPosts } from "@/lib/api";
 import { Post } from "@/types/blog";
 import { PortableText } from "@portabletext/react";
 import { notFound } from "next/navigation";
-import { YouMayAlsoLike } from "@/components/YouMayAlsoLike";
+import  YouMayAlsoLike  from "@/components/YouMayAlsoLike";
 
 interface PageProps {
   params: {

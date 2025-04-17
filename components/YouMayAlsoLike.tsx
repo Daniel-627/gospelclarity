@@ -1,27 +1,25 @@
-// components/YouMayAlsoLike.tsx
-"use client";
-
-import { Post } from "@/types/blog";
 import Link from "next/link";
+import { Post } from "@/types/blog";
 
-export const YouMayAlsoLike = ({ posts }: { posts: Post[] }) => {
-  if (!posts.length) return null;
+interface Props {
+  posts: Post[];
+}
 
+export default function YouMayAlsoLike({ posts }: Props) {
   return (
-    <div className="mt-16 border-t pt-10">
-      <h2 className="text-2xl font-semibold mb-6">Related Suggestions</h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {posts.map((post) => (
-          <Link key={post._id} href={`/blog/${post.slug}`}>
-            <div className="border rounded-xl overflow-hidden hover:shadow-md transition-shadow">
-              <div className="p-4">
-                <h3 className="font-medium text-lg">{post.title}</h3>
-                <p className="text-sm text-gray-500 mt-1">{post.author}</p>
-              </div>
-            </div>
-          </Link>
-        ))}
-      </div>
+    <div className="grid gap-4">
+      {posts.map((post) => (
+        <Link
+          key={post._id}
+          href={`/blog/${post.slug.current}`}
+          className="block border rounded-xl p-4 hover:bg-gray-100 dark:hover:bg-zinc-800 transition"
+        >
+          <h3 className="text-lg font-semibold">{post.title}</h3>
+          <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+            {post.description || "Read more..."}
+          </p>
+        </Link>
+      ))}
     </div>
   );
-};
+}

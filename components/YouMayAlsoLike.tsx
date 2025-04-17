@@ -7,7 +7,13 @@ interface Props {
 }
 
 export default function YouMayAlsoLike({ posts, category }: Props) {
-  if (!posts.length || !category) return null;
+  if (!posts.length || !category) {
+    return (
+      <div className="mt-16 text-center text-sm text-gray-500 dark:text-gray-400">
+        No related posts found.
+      </div>
+    );
+  }
 
   return (
     <section className="mt-16">

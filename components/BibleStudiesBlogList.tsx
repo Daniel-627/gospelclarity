@@ -29,15 +29,15 @@ export default function BibleStudiesBlogList() {
 
   return (
     <div className="flex flex-col">
-        <h1 className="p-4 text-xl">Bible Studies</h1>
+        <h1 className="p-4 text-xl font-semibold">Bible Studies</h1>
       {posts.map((post) => (
         <Link href={`/blog/${encodeURIComponent(post.slug.current)}`} key={post._id} passHref>
-          <div className="p-3 cursor-pointer border-t-2 border-gray-300  transition">
+          <div className="p-3 cursor-pointer border-t-2 border-gray-600  transition">
             <div className="mt-1">
               <p className="text-xs  mt-2">
                 {post.latestCategory}
               </p>
-              <h2 className="text-base font-medium ">
+              <h2 className="text-base font-medium text-[#ffdb99]">
                 {post.title}
               </h2>
             </div>

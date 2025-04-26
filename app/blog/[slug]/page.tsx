@@ -2,6 +2,7 @@ import { fetchPostBySlug } from "@/lib/api";
 import { Post } from "@/types/blog";
 import { PortableText } from "@portabletext/react";
 import { notFound } from "next/navigation";
+import YouMayAlsoLike from "@/components/YouMayAlsoLike"; // Import your component
 
 interface PageProps {
   params: {
@@ -9,7 +10,7 @@ interface PageProps {
   };
 }
 
-// **Generate dynamic metadata**
+// Generate metadata dynamically
 export async function generateMetadata({ params }: PageProps) {
   const post: Post | null = await fetchPostBySlug(params.slug);
 
@@ -32,14 +33,10 @@ export async function generateMetadata({ params }: PageProps) {
   };
 }
 
-
 export default async function Page({ params }: PageProps) {
   const { slug } = params;
-
-  // Fetch the post using the slug
   const post: Post | null = await fetchPostBySlug(slug);
 
-  // If no post is found, return 404
   if (!post) {
     return notFound();
   }
@@ -50,15 +47,24 @@ export default async function Page({ params }: PageProps) {
       <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
 
       {/* Published Date */}
-      <p className="text-gray-600">Published on: {new Date(post.publishedAt).toDateString()}</p>
+      <p className="text-gray-600 mb-6">
+        Published on: {new Date(post.publishedAt).toDateString()}
+      </p>
 
       {/* Blog Content */}
-      <div className="mt-6 prose max-w-none">
+      <div className="prose max-w-none dark:prose-invert">
         <PortableText value={post.body} />
       </div>
+
+      {/* You May Also Like */}
+      {post.category?.slug?.current && (
+        <div className="mt-16">
+          <YouMayAlsoLike categorySlug={post.category.slug.current} />
+        </div>
+      )}
     </div>
   );
 }
 
-// ISR: Revalidate page every 60 seconds
+// Revalidate every 60 seconds
 export const revalidate = 60;

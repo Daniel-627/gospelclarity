@@ -37,17 +37,21 @@ export const fetchPostBySlug = async (slug: string): Promise<Post | null> => {
     _id,
     title,
     "author": author->name,
-    "latestCategory": categories[-1]->title,
+    "latestCategory": categories[-1]->{
+      title,
+      slug
+    },
     publishedAt,
     description,
-    "slug": slug.current,
-    "mainImage": mainImage.asset->url,  // Fetching the image URL
-    body  // Fetch the body content
+    slug,
+    mainImage,
+    body
   }`;
 
   const post = await client.fetch(query, { slug });
   return post;
 };
+
 
 
 // lib/api.ts

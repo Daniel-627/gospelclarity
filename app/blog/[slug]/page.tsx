@@ -39,13 +39,18 @@ export default async function Page({ params }: PageProps) {
   // Fetch the main blog post
   const post: Post | null = await fetchPostBySlug(slug);
 
-  // If no post is found, return 404
+  console.log("Fetched post:", post);
+
   if (!post) {
     return notFound();
   }
 
+
   // Fetch related posts by categories
   const relatedPostsByCategory = await fetchPostsByCategories(post.latestCategories || [], slug);
+
+  console.log("Related posts:", relatedPostsByCategory);
+
 
   return (
     <div className="container mx-auto max-w-3xl pt-[72px] md:pt-20">

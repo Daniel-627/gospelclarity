@@ -538,22 +538,15 @@ export async function fetchRandomCategories(limit: number): Promise<Category[]> 
 }
 
 
-export const fetchRelatedPosts = async (
-  categories: string[] = [],
+export const fetchPostsByCategories = async (
+  categories: string[],
   currentSlug: string
-): Promise<{ posts: Post[]; selectedCategory: string | null }> => {
-  if (!categories.length) return { posts: [], selectedCategory: null };
+): Promise<{ [category: string]: Post[] }> => {
+  const result: { [category: string]: Post[] } = {};
 
-  // Clone categories array so we can safely modify it
-  let remainingCategories = [...categories];
-
-  while (remainingCategories.length > 0) {
-    // Pick a random category
-    const randomIndex = Math.floor(Math.random() * remainingCategories.length);
-    const selectedCategory = remainingCategories[randomIndex];
-
+  for (const category of categories) {
     const query = `
-      *[_type == "post" && slug.current != $currentSlug && categories[_type == "reference" && ^->title == $selectedCategory]]
+      *[_type == "post" && slug.current != $currentSlug && $category in categories[]->title]
       | order(publishedAt desc)[0...3] {
         _id,
         title,
@@ -565,20 +558,15 @@ export const fetchRelatedPosts = async (
       }
     `;
 
-    const posts: Post[] = (await client.fetch(query, {
+    const posts: Post[] = await client.fetch(query, {
       currentSlug,
-      selectedCategory,
-    })) || [];
+      category,
+    });
 
-    if (posts.length > 0) {
-      // Found some posts, return them!
-      return { posts, selectedCategory };
-    } else {
-      // No posts found, remove this category and try another
-      remainingCategories.splice(randomIndex, 1);
+    if (posts.length) {
+      result[category] = posts;
     }
   }
 
-  // If no posts found in any category
-  return { posts: [], selectedCategory: null };
+  return result;
 };

@@ -544,27 +544,41 @@ export const fetchRelatedPosts = async (
 ): Promise<{ posts: Post[]; selectedCategory: string | null }> => {
   if (!categories.length) return { posts: [], selectedCategory: null };
 
-  // Pick a random category
-  const selectedCategory = categories[Math.floor(Math.random() * categories.length)];
+  // Clone categories array so we can safely modify it
+  let remainingCategories = [...categories];
 
-  const query = `
-    *[_type == "post" && slug.current != $currentSlug && $selectedCategory in categories[]->title]
-    | order(publishedAt desc)[0...3] {
-      _id,
-      title,
-      "author": author->name,
-      description,
-      "slug": slug.current,
-      publishedAt,
-      body
+  while (remainingCategories.length > 0) {
+    // Pick a random category
+    const randomIndex = Math.floor(Math.random() * remainingCategories.length);
+    const selectedCategory = remainingCategories[randomIndex];
+
+    const query = `
+      *[_type == "post" && slug.current != $currentSlug && categories[_type == "reference" && ^->title == $selectedCategory]]
+      | order(publishedAt desc)[0...3] {
+        _id,
+        title,
+        "author": author->name,
+        description,
+        "slug": slug.current,
+        publishedAt,
+        body
+      }
+    `;
+
+    const posts: Post[] = (await client.fetch(query, {
+      currentSlug,
+      selectedCategory,
+    })) || [];
+
+    if (posts.length > 0) {
+      // Found some posts, return them!
+      return { posts, selectedCategory };
+    } else {
+      // No posts found, remove this category and try another
+      remainingCategories.splice(randomIndex, 1);
     }
-  `;
+  }
 
-  const posts: Post[] = await client.fetch(query, {
-    currentSlug,
-    selectedCategory,
-  });
-
-  return { posts, selectedCategory };
+  // If no posts found in any category
+  return { posts: [], selectedCategory: null };
 };
-

@@ -1,8 +1,7 @@
-import { fetchPostBySlug, fetchPostsByCategories } from "@/lib/api";
+import { fetchPostBySlug } from "@/lib/api";
 import { Post } from "@/types/blog";
 import { PortableText } from "@portabletext/react";
 import { notFound } from "next/navigation";
-import YouMayAlsoLike from "@/components/YouMayAlsoLike";
 
 interface PageProps {
   params: {
@@ -10,7 +9,7 @@ interface PageProps {
   };
 }
 
-// Generate dynamic metadata
+// **Generate dynamic metadata**
 export async function generateMetadata({ params }: PageProps) {
   const post: Post | null = await fetchPostBySlug(params.slug);
 
@@ -33,24 +32,17 @@ export async function generateMetadata({ params }: PageProps) {
   };
 }
 
+
 export default async function Page({ params }: PageProps) {
   const { slug } = params;
 
-  // Fetch the main blog post
+  // Fetch the post using the slug
   const post: Post | null = await fetchPostBySlug(slug);
 
-  console.log("Fetched post:", post);
-
+  // If no post is found, return 404
   if (!post) {
     return notFound();
   }
-
-
-  // Fetch related posts by categories
-  const relatedPostsByCategory = await fetchPostsByCategories(post.latestCategories || [], slug);
-
-  console.log("Related posts:", relatedPostsByCategory);
-
 
   return (
     <div className="container mx-auto max-w-3xl pt-[72px] md:pt-20">
@@ -64,9 +56,6 @@ export default async function Page({ params }: PageProps) {
       <div className="mt-6 prose max-w-none">
         <PortableText value={post.body} />
       </div>
-
-      {/* You May Also Like Section */}
-      <YouMayAlsoLike postsByCategory={relatedPostsByCategory} />
     </div>
   );
 }
